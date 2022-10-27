@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier -w src/js/**/*.js"
+    "format": "prettier -w src/js/**/*.js",
+    "lint": "eslint src/js/**/*.js",
+    "lint-fix": "eslint src/**/*.js --cache --fix"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/Fermain/workflow#readme",
   "devDependencies": {
+    "eslint": "^8.26.0",
     "prettier": "^2.7.1"
   }
 }
