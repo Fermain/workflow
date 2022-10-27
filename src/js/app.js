@@ -1,20 +1,24 @@
 const apiURL = "https://nf-api.onrender.com/api/v1/cat-facts/";
 
-// const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6Ik9saXZlciIsImVtYWlsIjoib2xpdmVyLmRpcHBsZUBub3JvZmYubm8iLCJhdmF0YXIiOiJodHRwczovL2kuaW1ndXIuY29tL0xtNWdSdnIuanBlZyIsImJhbm5lciI6bnVsbCwiaWF0IjoxNjYzNzg3NDk4fQ.QRxXm57t6leq0b1LVxQMtz3Xx2_OuI5isS8mgHioJYw";
-
-export async function app(unusedArgument) {
+export async function getCatFacts() {
   const response = await fetch(apiURL);
+  return await response.json();
+}
 
-  const facts = await response.json();
+export function createCatFactHTML(fact) {
+  const item = document.createElement("div");
+  item.innerText = fact.text;
+  return item;
+}
 
-  facts.forEach((fact) => {
-    const item = document.createElement("div");
-    item.innerText = fact.text;
-    document.body.append(item);
-  });
+export function createCatFactsHtml(facts) {
+  const factsHTML = facts.map(createCatFactHTML);
+  document.body.append(...factsHTML);
+}
 
-  console.log(unusedArgument);
-
+export async function app() {
+  const facts = await getCatFacts();
+  createCatFactsHtml(facts);
   return "App Ready!";
 }
 
