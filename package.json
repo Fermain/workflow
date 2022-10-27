@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Fermain/workflow/issues"
   },
-  "homepage": "https://github.com/Fermain/workflow#readme"
+  "homepage": "https://github.com/Fermain/workflow#readme",
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
 }
