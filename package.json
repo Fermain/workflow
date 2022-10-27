@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier -w src/js/**/*.js",
     "lint": "eslint src/js/**/*.js",
-    "lint-fix": "eslint src/**/*.js --cache --fix"
+    "lint-fix": "eslint src/**/*.js --cache --fix",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,23 @@
   "homepage": "https://github.com/Fermain/workflow#readme",
   "devDependencies": {
     "eslint": "^8.26.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.html": [
+      "prettier --write"
+    ],
+    "*.scss": [
+      "prettier --write"
+    ],
+    "*.css": [
+      "prettier --write"
+    ]
   }
 }
